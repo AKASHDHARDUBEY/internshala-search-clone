@@ -19,7 +19,7 @@ export default function InternshipCard({ internship }: CardProps) {
           <p className="text-sm font-medium text-gray-500">{internship.company_name}</p>
         </div>
         
-        <div className="h-10 w-10 bg-gray-50 flex items-center justify-center text-xs font-extrabold text-sky-500 border rounded">
+        <div className="h-10 w-10 bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center text-xs font-semibold text-slate-400 border border-slate-200 rounded-full shrink-0 shadow-inner select-none">
           {internship.company_name.substring(0, 2).toUpperCase()}
         </div>
       </div>
@@ -32,7 +32,7 @@ export default function InternshipCard({ internship }: CardProps) {
         ))}
       </div>
 
-      <div className="grid grid-cols-3 gap-4 border-t border-b border-gray-50 py-3 text-sm">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 border-t border-b border-gray-50 py-3 text-sm">
         <div>
           <span className="text-[11px] uppercase tracking-wider text-gray-400 font-semibold block">START DATE</span>
           <span className="text-gray-700 font-medium">{internship.start_date}</span>
@@ -55,9 +55,14 @@ export default function InternshipCard({ internship }: CardProps) {
 
       <div className="flex justify-between items-center text-xs pt-2">
         <span className="text-gray-400 font-mono">ID: {internship.id}</span>
-        <button className="text-sky-500 hover:text-sky-600 font-semibold inline-flex items-center gap-1 border border-sky-500 px-3.5 py-1.5 rounded bg-transparent hover:bg-sky-50 transition-all cursor-pointer">
+        <a 
+          href={`https://internshala.com/internship/detail/${internship.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sky-500 hover:text-sky-600 font-semibold inline-flex items-center gap-1 border border-sky-500 px-3.5 py-1.5 rounded bg-transparent hover:bg-sky-50 transition-all cursor-pointer"
+        >
           Apply Now <ExternalLinkIcon className="h-3 w-3" />
-        </button>
+        </a>
       </div>
     </div>
   );
