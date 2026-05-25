@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Internship } from '@/types/internship';
-import { MapPinIcon, CalendarIcon, WalletIcon, ExternalLinkIcon, PlayCircleIcon } from 'lucide-react';
+import { MapPinIcon, CalendarIcon, WalletIcon, ExternalLinkIcon, PlayCircleIcon, Building2Icon } from 'lucide-react';
 
 interface CardProps {
   internship: Internship;
@@ -26,8 +26,8 @@ export default function InternshipCard({ internship }: CardProps) {
           <p className="text-sm font-medium text-gray-500">{internship.company_name}</p>
         </div>
         
-        <div className="h-10 w-10 bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center text-xs font-semibold text-slate-400 border border-slate-200 rounded-full shrink-0 shadow-inner select-none">
-          {internship.company_name.substring(0, 2).toUpperCase()}
+        <div className="h-10 w-10 bg-slate-50 flex items-center justify-center text-slate-400 border border-slate-200 rounded-full shrink-0 select-none">
+          <Building2Icon className="h-5 w-5 text-slate-400" />
         </div>
       </div>
 
