@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { Internship, FilterState } from '@/types/internship';
 import InternshipCard from '../InternshipCard/InternshipCard';
 import EmptyState from '../UI/EmptyState';
@@ -8,6 +11,25 @@ interface ListProps {
   filters?: FilterState;
   searchQuery?: string;
 }
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 12 },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { type: 'spring' as const, stiffness: 260, damping: 25 } 
+  }
+};
 
 export default function InternshipList({ internships, onReset, filters, searchQuery }: ListProps) {
   if (internships.length === 0) {
@@ -44,11 +66,19 @@ export default function InternshipList({ internships, onReset, filters, searchQu
           )}
         </p>
       </div>
-      <div className="space-y-4">
+      
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+        className="space-y-4"
+      >
         {internships.map((internship) => (
-          <InternshipCard key={internship.id} internship={internship} />
+          <motion.div key={internship.id} variants={itemVariants}>
+            <InternshipCard internship={internship} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

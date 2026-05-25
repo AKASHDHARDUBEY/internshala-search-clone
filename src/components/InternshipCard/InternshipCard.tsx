@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { Internship } from '@/types/internship';
 import { MapPinIcon, CalendarIcon, WalletIcon, ExternalLinkIcon, PlayCircleIcon } from 'lucide-react';
 
@@ -7,7 +10,11 @@ interface CardProps {
 
 export default function InternshipCard({ internship }: CardProps) {
   return (
-    <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 space-y-4 relative group">
+    <motion.div 
+      whileHover={{ y: -4 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+      className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 space-y-4 relative group"
+    >
       <div className="flex justify-between items-start">
         <div className="space-y-1">
           <div className="inline-flex items-center gap-1 text-[11px] font-medium border px-2 py-0.5 rounded bg-sky-50 text-sky-600 border-sky-100">
@@ -64,6 +71,6 @@ export default function InternshipCard({ internship }: CardProps) {
           Apply Now <ExternalLinkIcon className="h-3 w-3" />
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 }
