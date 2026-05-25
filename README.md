@@ -113,7 +113,7 @@ The project is configured for cloud deployment on Vercel. Continuous integration
 ![Desktop View](public/screenshots/desktop.png)
 
 ### Mobile View
-![Mobile View](public/screenshots/mobile.png)
+![Mobile View](public/screenshots/mobile.jpeg)
 
 ---
 
